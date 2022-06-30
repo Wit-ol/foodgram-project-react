@@ -12,11 +12,11 @@ class Ingredient(models.Model):
                                         verbose_name='Единица измерения')
 
     class Meta:
-        ordering = ['-id']
+        ordering = ('-id',)
         verbose_name = 'Ингредиент'
         verbose_name_plural = 'Ингредиенты'
         constraints = [
-            models.UniqueConstraint(fields=['name', 'measurement_unit'],
+            models.UniqueConstraint(fields=('name', 'measurement_unit',),
                                     name='unique ingredient')
         ]
 
@@ -46,7 +46,7 @@ class Tag(models.Model):
                             verbose_name='Уникальный слаг')
 
     class Meta:
-        ordering = ['-id']
+        ordering = ('-id',)
         verbose_name = 'Тег'
         verbose_name_plural = 'Теги'
 
@@ -80,7 +80,7 @@ class Recipe(models.Model):
         verbose_name='Время приготовления')
 
     class Meta:
-        ordering = ['-id']
+        ordering = ('-id',)
         verbose_name = 'Рецепт'
         verbose_name_plural = 'Рецепты'
 
@@ -104,7 +104,7 @@ class IngredientAmount(models.Model):
     )
 
     class Meta:
-        ordering = ['-id']
+        ordering = ('-id',)
         verbose_name = 'Количество ингридиента'
         verbose_name_plural = 'Количество ингридиентов'
         constraints = [
@@ -127,7 +127,7 @@ class Favorite(models.Model):
     )
 
     class Meta:
-        ordering = ['-id']
+        ordering = ('-id',)
         verbose_name = 'Избранное'
         verbose_name_plural = 'Избранные'
         constraints = [
@@ -151,7 +151,7 @@ class Cart(models.Model):
     )
 
     class Meta:
-        ordering = ['-id']
+        ordering = ('-id',)
         verbose_name = 'Корзина'
         verbose_name_plural = 'В корзине'
         constraints = [
